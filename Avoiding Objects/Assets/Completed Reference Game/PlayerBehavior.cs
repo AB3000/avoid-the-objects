@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehavior : MonoBehaviour
-{
+{ 
     //variable tracking mouse position 
-    Vector3 mousePosition; 
+    Vector3 mousePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +31,15 @@ public class PlayerBehavior : MonoBehaviour
             this.transform.position.y);
 
         transform.position = newPosition;
+  
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        //Dangerous object collides with player? Game over.
+        if (col.tag == "EvilObject")
+        {
+            SceneManager.LoadScene("Ending Screen");
+        }
     }
 }
