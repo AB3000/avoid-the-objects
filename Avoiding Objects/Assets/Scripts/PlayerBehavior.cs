@@ -8,6 +8,7 @@ public class PlayerBehavior : MonoBehaviour
 { 
     //variable tracking mouse position 
     Vector3 mousePosition;
+    public string endScene;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class PlayerBehavior : MonoBehaviour
         //Dangerous object collides with player? Game over.
         if (col.tag == "EvilObject")
         {
-            SceneManager.LoadScene("Ending Screen");
+            SceneManager.LoadScene(endScene);
         }
     }
 }
